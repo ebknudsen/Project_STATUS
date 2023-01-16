@@ -18,16 +18,16 @@ js=r.json()
 if(js['workflow_runs'][0]['conclusion'] == 'success'):
   status="""{
   "schemaVersion": 1,
-  "label': "TEST",
+  "label": "TEST",
   "message": "success",
   "color": "green"
 }"""
 else:
   status="""{
   "schemaVersion": 1,
-  "label': "TEST",
-  "message': "failed",
-  "color': "red"
+  "label": "TEST",
+  "message": "failed",
+  "color": "red"
 }"""
 
 statusfile=f'{repo}/STATUS.json'
