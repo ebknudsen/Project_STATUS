@@ -1,6 +1,6 @@
 {
-  'schemaVersion': 1,
-  'label': 'TEST',
-  'message': 'success',
-  'color': 'green'
+  "schemaVersion": 1,
+  "label": "TEST",
+  "message": "success",
+  "color": "green"
 }
