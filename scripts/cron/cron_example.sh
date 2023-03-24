@@ -8,9 +8,9 @@ for script in `ls scripts`; do
   if [ -d $script ]; then 
     continue
   elif [ -x $script ]; then
-    $script
+    scripts/${script}
   else
-    python $script
+    python scripts/${script}
   fi
 done
 
