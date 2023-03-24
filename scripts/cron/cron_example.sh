@@ -3,19 +3,20 @@
 #get the github access token module
 ml gh_access
 
-cd Repos/Project_STATUS
+cd Repos/Project_STATUS/
 for script in `ls scripts`; do
-  if [ -d $script ]; then 
+  fp=scripts/${script}
+  if [ -d $fp ]; then 
     continue
-  elif [ -x $script ]; then
-    scripts/${script}
+  elif [ -x $fp ]; then
+    echo ${fp}
   else
-    python scripts/${script}
+    echo python ${fp}
   fi
 done
 
 #update all the status tokens and push it upstream such that other projects can have access
-git commit -a
+git commit -a -m"update status tokens"
 git push
 
 #unload the access token module
