@@ -10,25 +10,26 @@ if (TOKEN is None or username is None):
 headers={'Accept': 'application/vnd.github+json', 'Authorization': f'Bearer {TOKEN}', "X-GitHub-Api-Version": "2022-11-28"}
 
 workflow='mcstas-3.0_compile.yml'
+wflabel='McStas-3.0 compile'
 repo='McStas_perfect_neutron_crystal'
 #get the workflow result
 r=requests.get(f'https://api.github.com/repos/{username}/{repo}/actions/workflows/{workflow}/runs',headers=headers)
 js=r.json()
-#was the work
+#check the status - was the workflow run a success or no?
 if(js['workflow_runs'][0]['conclusion'] == 'success'):
-  status="""{
+  status="""{{
   "schemaVersion": 1,
-  "label": "TEST",
+  "label": {wflabel},
   "message": "success",
   "color": "green"
-}"""
+}}"""
 else:
-  status="""{
+  status=f"""{{
   "schemaVersion": 1,
-  "label": "TEST",
+  "label": {wflabel},
   "message": "failed",
   "color": "red"
-}"""
+}}"""
 
 statusfile=f'{repo}/STATUS.json'
 with open(statusfile,'w') as f:
