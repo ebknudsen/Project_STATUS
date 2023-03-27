@@ -16,6 +16,7 @@ repo='McStas_perfect_neutron_crystal'
 r=requests.get(f'https://api.github.com/repos/{username}/{repo}/actions/workflows/{workflow}/runs',headers=headers)
 js=r.json()
 #check the status - was the workflow run a success or no?
+breakpoint()
 if(js['workflow_runs'][0]['conclusion'] == 'success'):
   status="""{{
   "schemaVersion": 1,
