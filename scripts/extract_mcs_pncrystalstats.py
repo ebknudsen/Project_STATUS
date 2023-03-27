@@ -17,7 +17,7 @@ r=requests.get(f'https://api.github.com/repos/{username}/{repo}/actions/workflow
 js=r.json()
 #check the status - was the workflow run a success or no?
 if(js['workflow_runs'][0]['conclusion'] == 'success'):
-  status="""{{
+  status=f"""{{
   "schemaVersion": 1,
   "label": {wflabel},
   "message": "success",
