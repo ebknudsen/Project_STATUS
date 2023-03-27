@@ -1,6 +1,6 @@
-{{
+{
   "schemaVersion": 1,
-  "label": {wflabel},
+  "label": McStas-3.0 compile,
   "message": "success",
   "color": "green"
-}}
+}
