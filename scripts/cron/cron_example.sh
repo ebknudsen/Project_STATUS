@@ -9,9 +9,9 @@ for script in `ls scripts`; do
   if [ -d $fp ]; then 
     continue
   elif [ -x $fp ]; then
-    echo ${fp}
+    ${fp}
   else
-    echo python ${fp}
+    python ${fp}
   fi
 done
 
