@@ -19,14 +19,14 @@ js=r.json()
 if(js['workflow_runs'][0]['conclusion'] == 'success'):
   status=f"""{{
   "schemaVersion": 1,
-  "label": {wflabel},
+  "label": "{wflabel}",
   "message": "success",
   "color": "green"
 }}"""
 else:
   status=f"""{{
   "schemaVersion": 1,
-  "label": {wflabel},
+  "label": "{wflabel}",
   "message": "failed",
   "color": "red"
 }}"""
