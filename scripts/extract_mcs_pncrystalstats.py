@@ -10,7 +10,7 @@ if (TOKEN is None or username is None):
 headers={'Accept': 'application/vnd.github+json', 'Authorization': f'Bearer {TOKEN}', "X-GitHub-Api-Version": "2022-11-28"}
 
 workflow='mcstas-3.0_compile.yml'
-wflabel='McStas-3.0 compile'
+wflabel='McStas-3.0_compile'
 repo='McStas_perfect_neutron_crystal'
 #get the workflow result
 r=requests.get(f'https://api.github.com/repos/{username}/{repo}/actions/workflows/{workflow}/runs',headers=headers)
