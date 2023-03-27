@@ -1,6 +1,6 @@
-{
+{{
   "schemaVersion": 1,
-  "label": "TEST",
+  "label": {wflabel},
   "message": "success",
   "color": "green"
-}
+}}
