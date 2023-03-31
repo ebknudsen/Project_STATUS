@@ -35,4 +35,4 @@ statusfile=f'{repo}/STATUS.json'
 with open(statusfile,'w') as f:
   f.write(status)
 os.system(f'git commit {statusfile} -m \"update\"')
-os.system('git push') 
+os.system('git push -q')
