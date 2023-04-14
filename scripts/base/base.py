@@ -1,3 +1,7 @@
+import json
+import os
+import requests
+
 def _get_status(repo,workflow,wflabel):
   username=os.environ['GH_USERNAME']
   TOKEN=os.environ['GH_ACCESS_TOKEN']
