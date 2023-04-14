@@ -16,7 +16,7 @@ def _get_status(repo,workflow,wflabel):
     if(wf_conclusion == 'success'):
       message='success'
       color='green'
-    else
+    else:
       message=wf_conclusion
       color='red'
 
