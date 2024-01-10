@@ -3,7 +3,7 @@
 #get the github access token module
 ml gh_access
 
-cd Repos/Project_STATUS/
+cd repos/Project_STATUS/
 for script in `ls scripts`; do
   fp=scripts/${script}
   if [ -d $fp ]; then 
