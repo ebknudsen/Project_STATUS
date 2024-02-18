@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
     "label": "Compile Status",
-    "message": "success",
-    "color": "green"
+    "message": "failure",
+    "color": "red"
   }
