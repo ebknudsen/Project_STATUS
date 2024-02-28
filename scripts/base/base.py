@@ -31,13 +31,17 @@ class Repo_status:
       r=requests.get(f'https://api.github.com/repos/{self.username}/{self.repo}/actions/workflows/{self.workflow}/runs',headers=headers)
       js=r.json()
       #check the status - was the workflow run a success or no?
-      wf_conclusion=js['workflow_runs'][0]['conclusion']
-      if(wf_conclusion == 'success'):
-        message='success'
-        color='green'
-      else:
-        message=wf_conclusion
-        color='red'
+      try:
+        wf_conclusion=js['workflow_runs'][0]['conclusion']
+        if(wf_conclusion == 'success'):
+          message='success'
+          color='green'
+        else:
+          message=wf_conclusion
+          color='red'
+      except KeyError:
+        message='unknown'
+        color='grey'
 
     status=f"""{{
       "schemaVersion": 1,
