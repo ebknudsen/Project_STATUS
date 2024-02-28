@@ -58,7 +58,7 @@ class Repo_status:
     os.system(f'git commit -q {statusfile} -m \"update\"')
     os.system('git push -q')
 
-  def update_status(self,repo,workflow,wflabel):
+  def update_status(self):
     s=self._get_status()
     self._write_status_file()
 
