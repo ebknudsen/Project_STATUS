@@ -14,9 +14,11 @@ class Repo_status:
 
     try:
       self.username=os.environ['GH_USERNAME']
-      TOKEN=os.environ['GH_ACCESS_TOKEN']
+      self.TOKEN=os.environ['GH_ACCESS_TOKEN']
     except KeyError:
       print("Need to set both GH_ACCESS_TOKEN and GH_USERNAME environment vars")
+      self.username=None
+      self.TOKEN=None
 
   def _get_status(self):
     if (self.TOKEN is None or self.username is None):
