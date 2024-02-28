@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
   "label": "McStas-3.0_compile",
-  "message": "success",
-  "color": "green"
+  "message": "failed",
+  "color": "red"
 }
