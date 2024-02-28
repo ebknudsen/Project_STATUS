@@ -7,4 +7,5 @@ from base import *
 workflow='test_compile_cmd.yml'
 wflabel='Compile Status'
 repo='C2PO'
-update_status(repo,workflow,wflabel)
+r=Repo_status(repo,workflow,wflabel)
+r.update_status()
