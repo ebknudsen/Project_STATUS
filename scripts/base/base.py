@@ -18,7 +18,7 @@ class Repo_status:
     except KeyError:
       print("Need to set both GH_ACCESS_TOKEN and GH_USERNAME environment vars")
 
-  def _get_status(self:
+  def _get_status(self):
     if (self.TOKEN is None or self.username is None):
       message='unknown'
       color='gray'
@@ -45,7 +45,7 @@ class Repo_status:
     }}"""
     return status
 
-  def _write_status_file(self,repo,status):
+  def _write_status_file(self):
     if not pl.Path(self.repo).exists():
       pl.Path(self.repo).mkdir()
       need_add=True
@@ -59,6 +59,6 @@ class Repo_status:
     os.system('git push -q')
 
   def update_status(self,repo,workflow,wflabel):
-    s=self._get_status(repo,workflow,wflabel)
-    self._write_status_file(repo,s)
+    s=self._get_status()
+    self._write_status_file()
 
