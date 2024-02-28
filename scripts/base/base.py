@@ -2,6 +2,7 @@ import json
 import os
 import requests
 import pathlib as pl
+import subprocess as sp
 
 class Repo_status:
   def __init__(self,repo='repository',workflow='status.yml', wflabel=None):
@@ -55,15 +56,15 @@ class Repo_status:
     need_add=False
     if not pl.Path(self.repo).exists():
       pl.Path(self.repo).mkdir()
-      need_add=True
 
     statusfile=f'{self.repo}/STATUS.json'
     with open(statusfile,'w') as f:
       f.write(status)
-    if need_add:
-      os.system(f'git add -f {statusfile}')
-    os.system(f'git commit -q {statusfile} -m \"update\"')
-    os.system('git push -q')
+    s=sp.check_output(['git','status','--porcelain',statusfile])
+    if s[1]=='?':
+      sp.run({'git','add','-f',statusfile])
+    sp.run(['git','commit','-q',statusfile,'-m','\"update\"'])
+    sp.run(['git','push','-q'])
 
   def update_status(self):
     s=self._get_status()
