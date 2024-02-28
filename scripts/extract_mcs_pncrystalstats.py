@@ -14,7 +14,7 @@ if (TOKEN is None or username is None):
 
 headers={'Accept': 'application/vnd.github+json', 'Authorization': f'Bearer {TOKEN}', 'X-GitHub-Api-Version': '2022-11-28'}
 
-workflow='mcstas-3.0_compile.yml'
+workflow='mcstas-3-run.yml'
 wflabel='McStas-3.0_compile'
 repo='McStas_perfect_neutron_crystal'
 #get the workflow result
