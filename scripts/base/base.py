@@ -46,10 +46,16 @@ class Repo_status:
     return status
 
   def _write_status_file(self,repo,status):
+    if not pl.Path(self.repo).exists():
+      pl.Path(self.repo).mkdir()
+      need_add=True
+
     statusfile=f'{self.repo}/STATUS.json'
     with open(statusfile,'w') as f:
       f.write(status)
-    os.system(f'git commit {statusfile} -m \"update\"')
+    if need_add:
+      os.system(f'git add -f {statusfile}')
+    os.system(f'git commit -q {statusfile} -m \"update\"')
     os.system('git push -q')
 
   def update_status(self,repo,workflow,wflabel):
