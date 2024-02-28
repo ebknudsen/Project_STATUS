@@ -52,6 +52,7 @@ class Repo_status:
     return status
 
   def _write_status_file(self, status):
+    need_add=False
     if not pl.Path(self.repo).exists():
       pl.Path(self.repo).mkdir()
       need_add=True
