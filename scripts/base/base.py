@@ -62,7 +62,7 @@ class Repo_status:
       f.write(status)
     s=sp.check_output(['git','status','--porcelain',statusfile])
     if s[1]=='?':
-      sp.run({'git','add','-f',statusfile])
+      sp.run(['git','add','-f',statusfile])
     sp.run(['git','commit','-q',statusfile,'-m','\"update\"'])
     sp.run(['git','push','-q'])
 
