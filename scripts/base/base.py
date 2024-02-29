@@ -60,8 +60,8 @@ class Repo_status:
     statusfile=f'{self.repo}/STATUS.json'
     with open(statusfile,'w') as f:
       f.write(status)
-    s=sp.check_output(['git','status','--porcelain',statusfile])
-    if s[1]=='?':
+    s=sp.check_output(['git','status','--porcelain',statusfile]).decode()
+    if len(s)>0 and s[1]=='?':
       sp.run(['git','add','-f',statusfile])
     sp.run(['git','commit','-q',statusfile,'-m','\"update\"'])
     sp.run(['git','push','-q'])
