@@ -2,5 +2,5 @@
       "schemaVersion": 1,
       "label": "Compile Status",
       "message": "unknown",
-      "color": "grey"
+      "color": "gray"
     }
